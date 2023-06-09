@@ -17,6 +17,12 @@ class ListsController < ApplicationController
    @list = List.find(params[:id])
   end
   
+  def update #データを更新する
+   list = List.find(params[:id])
+   list.update(list_params)
+   redirect_to list_path(list.id)
+  end
+  
   def create #データの追加・保存するためのアクション
    list = List.new(list_params)
    #データを受け取って新規登録するためのローカル変数
