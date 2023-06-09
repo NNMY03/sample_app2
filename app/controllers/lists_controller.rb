@@ -5,9 +5,12 @@ class ListsController < ApplicationController
   end
 
   def index #データの一覧を表示するためのアクション
+   @lists = List.all
+   
   end
 
   def show #データの詳細を表示するためのアクション
+  @list = List.find(params[:id])
   end
 
   def edit #データを更新するためのフォームを表示するアクション
@@ -17,7 +20,7 @@ class ListsController < ApplicationController
    list = List.new(list_params)
    #データを受け取って新規登録するためのローカル変数
    list.save
-   redirect_to '/top'
+   redirect_to list_path(list.id)
   end
   
   private
