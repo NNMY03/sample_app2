@@ -14,6 +14,7 @@ class ListsController < ApplicationController
   end
 
   def edit #データを更新するためのフォームを表示するアクション
+   @list = List.find(params[:id])
   end
   
   def create #データの追加・保存するためのアクション
