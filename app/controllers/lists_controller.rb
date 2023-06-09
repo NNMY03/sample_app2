@@ -4,12 +4,25 @@ class ListsController < ApplicationController
     # viewへ渡すためのインスタンス変数に空のモデルオブジェクトを生成する
   end
 
-  def index
+  def index #データの一覧を表示するためのアクション
   end
 
-  def show
+  def show #データの詳細を表示するためのアクション
   end
 
-  def edit
+  def edit #データを更新するためのフォームを表示するアクション
+  end
+  
+  def create #データの追加・保存するためのアクション
+   list = List.new(list_params)
+   #データを受け取って新規登録するためのローカル変数
+   list.save
+   redirect_to '/top'
+  end
+  
+  private
+  # ストロングパラメータ
+  def list_params
+    params.require(:list).permit(:title, :bo)
   end
 end
