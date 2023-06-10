@@ -33,6 +33,6 @@ class ListsController < ApplicationController
   private
   # ストロングパラメータ
   def list_params
-    params.require(:list).permit(:title, :bo)
+    params.require(:list).permit(:title, :bo, :image)
   end
 end
